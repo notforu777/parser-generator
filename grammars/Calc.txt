@@ -1,1 +1,46 @@
-E: T E'
+grammar Calc
+
+attributes[v: Integer]
+
+e
+    : t ePrime<t.v> { res.v = ePrime.v }
+    ;
+
+ePrime[acc: Integer]
+    : EPSILON { res.v = acc }
+    | PLUS t ePrime<acc + t.v> { res.v = ePrime.v }
+    | MINUS t ePrime<acc - t.v> { res.v = ePrime.v }
+    ;
+
+t
+    : p tPrime<p.v> { res.v = tPrime.v }
+    ;
+
+tPrime[acc: Integer]
+    : EPSILON { res.v = acc }
+    | MUL p tPrime<acc * p.v> { res.v = tPrime.v }
+    ;
+
+p
+    : f pPrime<f.v> { res.v = pPrime.v }
+    ;
+
+pPrime[acc: Integer]
+    : EPSILON { res.v = acc }
+    | POW p { res.v = (int) Math.pow(acc, p.v) }
+    ;
+
+f
+    : NUM { res.v = Integer.parseInt(str) }
+    | LPAREN e RPAREN { res.v = e.v }
+    | UNARY_MINUS f { res.v = -f.v }
+    ;
+
+LPAREN : "\(";
+RPAREN : "\)";
+PLUS : "\+";
+MUL : "\*";
+POW : "\^";
+UNARY_MINUS : "--";
+MINUS : "-";
+NUM : "(0|[1-9][0-9]*)";

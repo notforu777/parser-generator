@@ -1,0 +1,42 @@
+grammar PySubset
+
+e
+    : s ePrime
+    ;
+
+ePrime
+    : EPSILON
+    | XOR s ePrime
+    ;
+
+s
+    : t sPrime
+    ;
+
+sPrime
+    : EPSILON
+    | OR t sPrime
+    ;
+
+t
+    : f tPrime
+    ;
+
+tPrime
+    : EPSILON
+    | AND f tPrime
+    ;
+
+f
+    : NOT f
+    | VAR
+    | LPAREN e RPAREN
+    ;
+
+LPAREN : "\(";
+RPAREN : "\)";
+OR : "or";
+AND : "and";
+XOR : "xor";
+NOT : "not";
+VAR : "[a-z]";
