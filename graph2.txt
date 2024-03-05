@@ -1,0 +1,75 @@
+digraph {
+	0 [label = "e"]
+	200 [label = "s"]
+	0 -> 200
+	201 [label = "t"]
+	200 -> 201
+	202 [label = "f"]
+	201 -> 202
+	203 [label = "VAR"]
+	202 -> 203
+	205 [label = "tPrime"]
+	201 -> 205
+	206 [label = "AND"]
+	205 -> 206
+	208 [label = "f"]
+	205 -> 208
+	209 [label = "VAR"]
+	208 -> 209
+	211 [label = "tPrime"]
+	205 -> 211
+	213 [label = "sPrime"]
+	200 -> 213
+	214 [label = "OR"]
+	213 -> 214
+	216 [label = "t"]
+	213 -> 216
+	217 [label = "f"]
+	216 -> 217
+	218 [label = "VAR"]
+	217 -> 218
+	220 [label = "tPrime"]
+	216 -> 220
+	221 [label = "AND"]
+	220 -> 221
+	223 [label = "f"]
+	220 -> 223
+	224 [label = "LPAREN"]
+	223 -> 224
+	226 [label = "e"]
+	223 -> 226
+	227 [label = "s"]
+	226 -> 227
+	228 [label = "t"]
+	227 -> 228
+	229 [label = "f"]
+	228 -> 229
+	230 [label = "VAR"]
+	229 -> 230
+	232 [label = "tPrime"]
+	228 -> 232
+	234 [label = "sPrime"]
+	227 -> 234
+	235 [label = "OR"]
+	234 -> 235
+	237 [label = "t"]
+	234 -> 237
+	238 [label = "f"]
+	237 -> 238
+	239 [label = "VAR"]
+	238 -> 239
+	241 [label = "tPrime"]
+	237 -> 241
+	243 [label = "sPrime"]
+	234 -> 243
+	245 [label = "ePrime"]
+	226 -> 245
+	247 [label = "RPAREN"]
+	223 -> 247
+	249 [label = "tPrime"]
+	220 -> 249
+	251 [label = "sPrime"]
+	213 -> 251
+	253 [label = "ePrime"]
+	0 -> 253
+}
